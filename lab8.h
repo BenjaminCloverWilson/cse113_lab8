@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <errno.h>
 
 struct node
@@ -25,13 +26,13 @@ struct node
 /* Function Prototypes */
 struct node *create_node();
 void print_node(struct node *n);
-void insert_head(struct node **head, struct node **n, struct node **tail);
-void insert_middle(struct node **head, struct node **n, struct node **tail, struct node **marker, int position);
-void insert_tail(struct node **tail, struct node **n, struct node **head);
+struct node *insert_head(struct node **head, struct node **n, struct node **tail);
+struct node *insert_middle(struct node **head, struct node **n, struct node **tail, struct node **marker, int position);
+struct node *insert_tail(struct node **tail, struct node **n, struct node **head);
 void print_list(struct node *head);
-void delete_node(double x);
-void delete_list();
+struct node *delete_node(double d, struct node **head, struct node **tail, struct node **marker);
+struct node *delete_list(struct node **head, struct node **marker);
 int count_nodes(struct node *head);
-struct node *find_node(double x);
+struct node *find_node(double d, struct node **head);
 
 #endif
