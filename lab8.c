@@ -4,7 +4,7 @@
  * @author Benjamin Wilson
  * @date Fall 2021
  * @todo Write & implement functions
- * @bug Probably everything here
+ * @bug DO NOT ENTER ANYTHING BUT AN INTEGER OR ELSE YOU GET AN INFINITE LOOP!
  */
 
 #include "lab8.h"
@@ -16,10 +16,13 @@ int main()
     struct node *tail = NULL;
     struct node *marker = NULL;
     struct node *cnode = NULL; /* last node created or being referenced */
+    struct node *head_check = head;
 
     /* Menu/user-input option tracker */
     int menu = 0;
     int position = 0;
+    int node_count;
+    double number;
 
     /* Menu */
     printf("---Welcome to Benjamin Wilson's Doubles List---\n\n");    
@@ -27,18 +30,13 @@ int main()
     {
     printf("1) Enter a number\n");
     printf("2) Delete a number\n");
-    printf("3) Print all numbers\n");
-    printf("4) Print how many numbers are in the list\n");
-    printf("5) Find a number in the list\n");
-    printf("6) Quit\n\n");
-    /* Checks for valid menu option */
-    while(menu < 1 || menu > 6)
-    {
-        printf("Please enter an option: ");
-        scanf(" %d", &menu);
-        if(menu < 1 || menu > 6)
-            printf("Error: Please input a valid menu option!\n\n");
-    }
+    printf("3) Delete entire list\n");
+    printf("4) Print all numbers\n");
+    printf("5) Print how many numbers are in the list\n");
+    printf("6) Find a number in the list\n");
+    printf("7) Quit\n\n");
+    printf("Please enter an option (only integers): ");
+    scanf(" %d", &menu);
 
     /* Menu options */
     switch(menu)
@@ -56,7 +54,10 @@ int main()
             printf("Please enter an option: ");
             scanf(" %d", &menu);
             if(menu < 1 || menu > 3)
+            {
                 printf("Error: Please input a valid position number!\n\n");
+                menu = 0;   
+            }
         }
 
         switch(menu)
@@ -64,13 +65,11 @@ int main()
         case 1:
             /* Creates new node and makes it the head */
             cnode = create_node();
-            insert_head(&head, &cnode, &tail);
-            print_list(head);
-            printf("Head: %p", head);
-            printf("Tail: %p", tail);
+            head_check = insert_head(&head, &cnode, &tail);
+            printf("\n");
+            print_node(cnode);
+            printf("Current head address of list: %p\n\n", head_check);
         
-            /* Resets menu option to 0 to re-use menu tracker */
-            menu = 0;
             break;
 
         case 2:
@@ -91,49 +90,84 @@ int main()
 
             /* Creates new node and inserts it into the position indicated */
             cnode = create_node();
-            insert_middle(&head, &cnode, &tail, &marker, position);
-            print_list(head);
+            head_check = insert_middle(&head, &cnode, &tail, &marker, position);
+            printf("\n");
+            print_node(cnode);
+            printf("Current head address of list: %p\n\n", head_check);
 
             /* Resets menu options for recycling */
             position = 0;
-            menu = 0;
             break;
 
         case 3:
             /* Creates new node and inserts it into the position indicated */
             cnode = create_node();
-            insert_tail(&tail, &cnode, &head);
-            printf("Head: %p\t", head);
-            printf("Tail: %p\n", tail);
-            print_list(head);
+            head_check = insert_tail(&tail, &cnode, &head);
+            printf("\n");
+            print_node(cnode);
+            printf("Current head address of list: %p\n\n", head_check);
 
-            /* Resets menu options for recycling */
-            menu = 0;
             break;
         }
-        
-    case 2:
+
         menu = 0;
         break;
-            
-    case 3:
+        
+    case 2:
+        printf("What number would you like to be deleted: ");
+        scanf(" %lf", &number);
+
+        head_check = delete_node(number, &head, &tail, &marker);
+        printf("Current head address of list: %p\n\n", head_check);
+
         menu = 0;
         break;
     
+    case 3:
+        printf("\nDeleting List...\n");
+        head_check = delete_list(&head, &marker);
+        printf("Current head address of list: %p\n\n", head_check);
+
+        menu = 0;
+        break;
+
     case 4:
+        printf("\n===============================\n");
+        printf("        The List So Far\n");
+        printf("===============================\n\n");
+        print_list(head);
+
         menu = 0;
         break;
     
     case 5:
+        printf("\n===============================\n");
+        printf("        Number of Nodes\n");
+        printf("===============================\n\n");
+        node_count = count_nodes(head);
+        printf("Node/Item Count: %d\n\n", node_count);
+
+        menu = 0;
+        break;
+    
+    case 6:
+        printf("What number would like to be found: ");
+        scanf(" %lf", &number);
+
+        marker = find_node(number, &head);
+
         menu = 0;
         break;
         
-    case 6:
-        /* Frees allocated dynamic memory */
-        free(cnode);
+    case 7:
+        delete_list(&head, &marker);
 
         printf("Terminating Program... Have a lovely day <3\n");
         return 0;
+    
+    default:
+        printf("Error: Please input a valid menu option!\n\n");
+        menu = 0;
     }
     }
 }
@@ -177,7 +211,7 @@ void print_node(struct node *n)
 }
 
 
-void insert_head(struct node **head, struct node **n, struct node **tail)
+struct node *insert_head(struct node **head, struct node **n, struct node **tail)
 {
     if(*head == NULL)
     {
@@ -195,42 +229,56 @@ void insert_head(struct node **head, struct node **n, struct node **tail)
         
         *tail = index;
     }
+
+    return *head;
 }
 
 
-void insert_middle(struct node **head, struct node **n, struct node **tail, struct node **marker, int position)
+struct node *insert_middle(struct node **head, struct node **n, struct node **tail, struct node **marker, int position)
 {
     if(*head == NULL)
     {
         *head = *n;
         *tail = *n;
         *marker = *n;
-    } else
+    } else if (position < 1)
+        position = 1; 
+    else
     {
         struct node *index = *head;
-        int count = 0;
+        int count = 1;
 
-        while(count < position && index->next != NULL)
-        {
-            *marker = index;
-            index = index->next;
-            count++;
-        }
-
-
-        if(index->next != NULL)
-        {
-            (*marker)->next = *n;
-        } else
+        if(position == 1)
         {
             (*n)->next = index;
-            (*marker)->next = *n;
+            *head = *n;
+        } else
+        {
+            while(count < position && index->next != NULL)
+            {
+                *marker = index;
+                index = index->next;
+                count++;
+            }
+
+            if(count != position)
+            {
+                (*tail)->next = *n;
+                *tail = *n;
+            } else if(count == position)
+            {
+                (*n)->next = index;
+                (*marker)->next = *n;
+            } else
+                printf("This doesn't work for some reason and I'm sad\n");
         }
     }
+
+    return *head;
 }
 
 
-void insert_tail(struct node **tail, struct node **n, struct node **head)
+struct node *insert_tail(struct node **tail, struct node **n, struct node **head)
 {
     if(*tail == NULL)
     {
@@ -248,6 +296,8 @@ void insert_tail(struct node **tail, struct node **n, struct node **head)
         (*tail)->next = *n;
         *tail = *n;
     }
+
+    return *head;
 }
 
 
@@ -256,35 +306,149 @@ void print_list(struct node *head)
     int position = 1;
     int loop = 1;
 
-    while(loop == 1)
+    if(head == NULL)
+        printf("Nothing in the list so far\n\n");
+    else
     {
-        if(head->next != NULL)
+        while(loop == 1)
         {
-            printf("Position: %d\n", position);
-            print_node(head);
-            head = head->next;
-        } else
+            if(head->next != NULL)
+            {
+                printf("Position: %d\n", position);
+                print_node(head);
+                head = head->next;
+            } else if(head->next == NULL)
+            {
+                printf("Position: %d\n", position);
+                print_node(head);
+                loop = 0;
+            }
+
+            position++;
+        }
+    }
+}
+
+
+struct node *delete_node(double d, struct node **head, struct node **tail, struct node **marker)
+{ 
+    if(*head == NULL)
+    {
+        printf("\nThe list is empty, number not found!\n\n");
+    } else if((*head)->next == NULL && (*head)->x == d)
+    {
+        free(*head);
+        *head = NULL;
+        *tail = NULL;
+        *marker = NULL;
+        printf("Number was deleted successfully!\n\n");
+    } else if((*head)->next != NULL && (*head)->x == d)
+    {
+        *marker = *head;
+        *head = (*head)->next;
+        free(*marker);
+        *marker = NULL;
+        printf("Number was deleted successfully!\n\n");
+    } else
+    {
+        struct node *index = *head;
+
+        while(index->x != d && index->next != NULL)
         {
-            printf("Position: %d\n", position);
-            print_node(head);
-            loop = 0;
+            *marker = index;
+            index = index->next;
         }
         
-        position++;
+        if(index->x == d && index->next != NULL)
+        {
+            (*marker)->next = index->next;
+            *marker = index;
+            free(*marker);
+            *marker = NULL;
+            printf("Number was deleted successfully!\n\n");
+        } else if(index->x == d && index->next == NULL)
+        {
+            (*marker)->next = NULL;
+            *tail = *marker;
+            *marker = index;
+            free(*marker);
+            *marker = NULL;
+            printf("Number was deleted successfully!\n\n");
+        } else if(index->x != d)
+        {
+            printf("\nNumber not found in the list!\n\n");
+        }
     }
+
+    return *head;
+}
+
+
+struct node *delete_list(struct node **head, struct node **marker)
+{
+    /* Frees allocated dynamic memory */
+    if(*head !=  NULL)
+    {
+        while((*head)->next != NULL)
+        {
+            *marker = *head;
+            *head = (*head)->next;
+            free(*marker);
+        }
+
+        free(*head);
+    }
+
+    *marker = NULL;
+    *head = NULL;
+
+    printf("List has been successfully deleted!\n\n");
+
+    return *head;
 }
 
 
 int count_nodes(struct node *head)
 {
     int count = 0;
-    struct node *tmp = head;
 
-    while(tmp->next != NULL)
+    if(head != NULL)
     {
-        count++;
-        tmp = tmp->next;
+        count = 1;
+
+        while(head->next != NULL)
+        {
+            count++;
+            head = head->next;
+        }
     }
 
     return count;
+}
+
+
+struct node *find_node(double d, struct node **head)
+{
+    if(*head == NULL)
+    {
+        printf("The list is currently empty, number not found!\n\n");
+        return NULL;
+    } else
+    {
+        struct node *find = *head;
+
+        while(find->x != d && find->next != NULL)
+            find = find->next;
+        
+        if(isgreaterequal(find->x, d) && islessequal(find->x, d))
+        {
+            printf("The number was found!\n\n");
+            print_node(find);
+            return find;
+        } else
+        {
+            printf("The number was not found!\n\n");
+            return NULL;
+        }
+    }
 }
