@@ -3,8 +3,8 @@
  * @brief Function prototypes for lab8.c
  * @author Benjamin Wilson
  * @date Fall 2021
- * @todo Write & implement functions
- * @bug Probably everything here
+ * @todo none
+ * @bug none
  */
 
 #ifndef LAB8_H
@@ -23,7 +23,7 @@ struct node
     struct node *next;
 };
 
-/* Function Prototypes */
+/* Function Prototypes for lab8.c */
 struct node *create_node();
 void print_node(struct node *n);
 struct node *insert_head(struct node **head, struct node **n, struct node **tail);
