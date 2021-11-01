@@ -15,6 +15,8 @@
 #include <math.h>
 #include <errno.h>
 
+#define LEN 32
+
 struct node
 {
     double x;
