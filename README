@@ -1,0 +1,54 @@
+Purpose:
+    lab8.c and its header file (lab8.h) take user inputted doubles
+    and place them inside a dynamically allocated linked list only limited
+    and capped by the user's available computer memory. lab8.valgrind simply
+    shows that the program properly frees all the memory in every function
+    call or in general scenarios. lab8.script shows this program compiling
+    and running properly. Finally, collatz.c takes a user-inputted number
+    to complete the hailstone sequence; its input and output for n = 3,
+    1000, and 10000 are outlined in the file deemed hailstone.
+
+Pseudo-Code:
+    None for this lab (yay)!
+
+Conclusion:
+    a) I learned a lot about malloc, free, pointers, and linked lists. With
+    malloc, I learned that pointers could be used to free stuff on the heap
+    while keeping stack memory available; for example, I could use the stack
+    head pointer to free the linked list node by node. For linked lists, I
+    simply learned about how to create them with structs, how useful they can
+    be with only being capped by a computer memory and imagination, and how
+    to implement varying functions for them, as in differing insertions,
+    deletions, etc. Last, in regards to pointers, I learned how to directly
+    manipuate and change what they point to across functions by using two
+    ** to pass them by reference, rather than by copy.
+
+    b) Yes, pair programming helped me because we could go through the logic
+    together and catch errors, as we had no compiler for the pseudo-code. The
+    only problem I had with my buddy is that he was really quite quiet. So,
+    he only spoke up here and there, or when I asked him a question about what
+    or I was doing.
+
+    c) No, I did not work with my buddy during the lab. I only really used our
+    pseduo-code to jump-start my thinking. As such, we did not complete a review
+    session either.
+
+    d) I had a few problems, which I eventually solved. First, when I started
+    my insert functions, I was having trouble with changing the addresses of
+    my stack pointers when attempting to manipuate them in functions. I solved
+    this by using stack overflow to learn how to pass pointers, themselves, by
+    reference to functions outside their scope, rather than by copy (use ** and
+    & for this problem basically). My second problem was with the delete_node()
+    function because it was simply not working when the head was the pointer in
+    my nested if-else statement. I had to solve this by moving the head scenarios
+    to the main if-else logic, rather than by nesting it (which I find wierd).
+    Finally, I had a bit of a problem with user-input. I originally attempted
+    to use scanf() because I was being lazy for some reason, and if any charcter
+    was inputted intead of a double, int, or \n, the program would just loop
+    at like 80,000 times a second through the menu. I fixed this by changing
+    the scanf() based user input into fgets(), which wasn't even that hard.
+
+    e) I'm sure I could index and access differing values of the list in a more
+    stream-lined manner, without creating multiple copies of the list within
+    the functions. That would really slow it down with a large list. And,
+    I could add error checking in collatz.c for the user-input.
