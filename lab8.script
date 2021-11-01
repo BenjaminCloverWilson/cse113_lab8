@@ -1,0 +1,655 @@
+Benjamin Wilson
+Lab 8
+October 30, 2021
+
+Script started on 2021-10-30 20:11:20-06:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="203" LINES="55"]
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ gcc -g -Wall lab8.c -o lab8
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ ./lab8
+---Welcome to Benjamin Wilson's Doubles List---
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 1
+
+Please enter the number to be included in the list (negatives & decimals accepted): 11.11
+
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+NULL
+
+Current head address of list: 0x55951a516ac0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 2
+
+Some notes: The position number entered must be at least 1, which represents the head.
+Entering a position larger than the current length of the list, causes the number to be simply placed at the tail.
+Further implements of other numbers does not change which number is the tail, unless going through option of the above menu.
+
+Please enter position of the number into the current list: 0
+Error: Please input a valid position number!
+
+Please enter position of the number into the current list: 11
+
+Please enter the number to be included in the list (negatives & decimals accepted): 44  33.33
+
+Node Address: 0x55951a516ae0
+Node Double: 33.330000
+NULL
+
+Current head address of list: 0x55951a516ac0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 3 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516ae0
+
+Position: 2
+Node Address: 0x55951a516ae0
+Node Double: 33.330000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 3
+
+Please enter the number to be included in the list (negatives & decimals accepted): 44.44444
+
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+NULL
+
+Current head address of list: 0x55951a516ac0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516ae0
+
+Position: 2
+Node Address: 0x55951a516ae0
+Node Double: 33.330000
+Next node in list: 0x55951a516b00
+
+Position: 3
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 2
+
+Some notes: The position number entered must be at least 1, which represents the head.
+Entering a position larger than the current length of the list, causes the number to be simply placed at the tail.
+Further implements of other numbers does not change which number is the tail, unless going through option of the above menu.
+
+Please enter position of the number into the current list: 2
+
+Please enter the number to be included in the list (negatives & decimals accepted): 22.2222
+
+Node Address: 0x55951a516b20
+Node Double: 22.222200
+Next node in list: 0x55951a516ae0
+
+Current head address of list: 0x55951a516ac0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516b20
+
+Position: 2
+Node Address: 0x55951a516b20
+Node Double: 22.222200
+Next node in list: 0x55951a516ae0
+
+Position: 3
+Node Address: 0x55951a516ae0
+Node Double: 33.330000
+Next node in list: 0x55951a516b00
+
+Position: 4
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 0.999     1
+
+Please enter the number to be included in the list (negatives & decimals accepted): 0.999
+
+Node Address: 0x55951a516b40
+Node Double: 0.999000
+Next node in list: 0x55951a516ac0
+
+Current head address of list: 0x55951a516b40
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516b40
+Node Double: 0.999000
+Next node in list: 0x55951a516ac0
+
+Position: 2
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516b20
+
+Position: 3
+Node Address: 0x55951a516b20
+Node Double: 22.222200
+Next node in list: 0x55951a516ae0
+
+Position: 4
+Node Address: 0x55951a516ae0
+Node Double: 33.330000
+Next node in list: 0x55951a516b00
+
+Position: 5
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 2
+What number would you like to be deleted: 0.999
+Number was deleted successfully!
+
+Current head address of list: 0x55951a516ac0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516b20
+
+Position: 2
+Node Address: 0x55951a516b20
+Node Double: 22.222200
+Next node in list: 0x55951a516ae0
+
+Position: 3
+Node Address: 0x55951a516ae0
+Node Double: 33.330000
+Next node in list: 0x55951a516b00
+
+Position: 4
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 3
+
+Please enter the number to be included in the list (negatives & decimals accepted): 44  33.33
+
+Node Address: 0x55951a516b40
+Node Double: 33.330000
+NULL
+
+Current head address of list: 0x55951a516ac0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516b20
+
+Position: 2
+Node Address: 0x55951a516b20
+Node Double: 22.222200
+Next node in list: 0x55951a516ae0
+
+Position: 3
+Node Address: 0x55951a516ae0
+Node Double: 33.330000
+Next node in list: 0x55951a516b00
+
+Position: 4
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+Next node in list: 0x55951a516b40
+
+Position: 5
+Node Address: 0x55951a516b40
+Node Double: 33.330000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 2
+What number would you like to be deleted: 33.33
+Number was deleted successfully!
+
+Current head address of list: 0x55951a516ac0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516b20
+
+Position: 2
+Node Address: 0x55951a516b20
+Node Double: 22.222200
+Next node in list: 0x55951a516b00
+
+Position: 3
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+Next node in list: 0x55951a516b40
+
+Position: 4
+Node Address: 0x55951a516b40
+Node Double: 33.330000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 6
+What number would like to be found: 11.11
+The number was found!
+
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516b20
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 6
+What number would like to be found: 69.6669
+The number was not found!
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516ac0
+Node Double: 11.110000
+Next node in list: 0x55951a516b20
+
+Position: 2
+Node Address: 0x55951a516b20
+Node Double: 22.222200
+Next node in list: 0x55951a516b00
+
+Position: 3
+Node Address: 0x55951a516b00
+Node Double: 44.444440
+Next node in list: 0x55951a516b40
+
+Position: 4
+Node Address: 0x55951a516b40
+Node Double: 33.330000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 3
+
+Deleting List...
+List has been successfully deleted!
+
+Current head address of list: (nil)
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Nothing in the list so far
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 2
+
+Some notes: The position number entered must be at least 1, which represents the head.
+Entering a position larger than the current length of the list, causes the number to be simply placed at the tail.
+Further implements of other numbers does not change which number is the tail, unless going through option of the above menu.
+
+Please enter position of the number into the current list: 45
+
+Please enter the number to be included in the list (negatives & decimals accepted): 45
+
+Node Address: 0x55951a516b40
+Node Double: 45.000000
+NULL
+
+Current head address of list: 0x55951a516b40
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 3
+
+Please enter the number to be included in the list (negatives & decimals accepted): 67.8999
+
+Node Address: 0x55951a516b00
+Node Double: 67.899900
+NULL
+
+Current head address of list: 0x55951a516b40
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x55951a516b40
+Node Double: 45.000000
+Next node in list: 0x55951a516b00
+
+Position: 2
+Node Address: 0x55951a516b00
+Node Double: 67.899900
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 5
+
+===============================
+        Number of Nodes
+===============================
+
+Node/Item Count: 2
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 3
+
+Deleting List...
+List has been successfully deleted!
+
+Current head address of list: (nil)
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 5
+
+===============================
+        Number of Nodes
+===============================
+
+Node/Item Count: 0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 7
+List has been successfully deleted!
+
+Terminating Program... Have a lovely day <3
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ exit
+exit
+
+Script done on 2021-10-30 20:16:19-06:00 [COMMAND_EXIT_CODE="0"]

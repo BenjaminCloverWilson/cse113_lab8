@@ -1,0 +1,591 @@
+Benjamin Wilson
+Lab 8
+October 30, 2021
+
+Script started on 2021-10-30 20:06:39-06:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="203" LINES="55"]
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ gcc -g -Wall lab8.c -o lab8
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ valgrind --leak [K-check=yes ./lab8
+==45475== Memcheck, a memory error detector
+==45475== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==45475== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==45475== Command: ./lab8
+==45475== 
+---Welcome to Benjamin Wilson's Doubles List---
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 7
+List has been successfully deleted!
+
+Terminating Program... Have a lovely day <3
+==45475== 
+==45475== HEAP SUMMARY:
+==45475==     in use at exit: 0 bytes in 0 blocks
+==45475==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==45475== 
+==45475== All heap blocks were freed -- no leaks are possible
+==45475== 
+==45475== For lists of detected and suppressed errors, rerun with: -s
+==45475== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ valgrind --leak-check=yes ./lab8
+==45487== Memcheck, a memory error detector
+==45487== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==45487== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==45487== Command: ./lab8
+==45487== 
+---Welcome to Benjamin Wilson's Doubles List---
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 1
+
+Please enter the number to be included in the list (negatives & decimals accepted): 23.4
+
+Node Address: 0x4a518c0
+Node Double: 23.400000
+NULL
+
+Current head address of list: 0x4a518c0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 2
+
+Some notes: The position number entered must be at least 1, which represents the head.
+Entering a position larger than the current length of the list, causes the number to be simply placed at the tail.
+Further implements of other numbers does not change which number is the tail, unless going through option of the above menu.
+
+Please enter position of the number into the current list: 6
+
+Please enter the number to be included in the list (negatives & decimals accepted): 1.2
+
+Node Address: 0x4a51910
+Node Double: 1.200000
+NULL
+
+Current head address of list: 0x4a518c0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 3
+
+Please enter the number to be included in the list (negatives & decimals accepted): 9999
+
+Node Address: 0x4a51960
+Node Double: 9999.000000
+NULL
+
+Current head address of list: 0x4a518c0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x4a518c0
+Node Double: 23.400000
+Next node in list: 0x4a51910
+
+Position: 2
+Node Address: 0x4a51910
+Node Double: 1.200000
+Next node in list: 0x4a51960
+
+Position: 3
+Node Address: 0x4a51960
+Node Double: 9999.000000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 7
+List has been successfully deleted!
+
+Terminating Program... Have a lovely day <3
+==45487== 
+==45487== HEAP SUMMARY:
+==45487==     in use at exit: 0 bytes in 0 blocks
+==45487==   total heap usage: 5 allocs, 5 frees, 2,096 bytes allocated
+==45487== 
+==45487== All heap blocks were freed -- no leaks are possible
+==45487== 
+==45487== For lists of detected and suppressed errors, rerun with: -s
+==45487== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ valgrind --leak-check=yes ./lab8
+==45516== Memcheck, a memory error detector
+==45516== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==45516== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==45516== Command: ./lab8
+==45516== 
+---Welcome to Benjamin Wilson's Doubles List---
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 3
+
+Deleting List...
+List has been successfully deleted!
+
+Current head address of list: (nil)
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 7
+List has been successfully deleted!
+
+Terminating Program... Have a lovely day <3
+==45516== 
+==45516== HEAP SUMMARY:
+==45516==     in use at exit: 0 bytes in 0 blocks
+==45516==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==45516== 
+==45516== All heap blocks were freed -- no leaks are possible
+==45516== 
+==45516== For lists of detected and suppressed errors, rerun with: -s
+==45516== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ valgrind --leak-check=yes ./lab8
+==45525== Memcheck, a memory error detector
+==45525== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==45525== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==45525== Command: ./lab8
+==45525== 
+---Welcome to Benjamin Wilson's Doubles List---
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 3
+
+Please enter the number to be included in the list (negatives & decimals accepted): 78.23
+
+Node Address: 0x4a518c0
+Node Double: 78.230000
+NULL
+
+Current head address of list: 0x4a518c0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 2
+
+Some notes: The position number entered must be at least 1, which represents the head.
+Entering a position larger than the current length of the list, causes the number to be simply placed at the tail.
+Further implements of other numbers does not change which number is the tail, unless going through option of the above menu.
+
+Please enter position of the number into the current list: 1
+
+Please enter the number to be included in the list (negatives & decimals accepted): 12
+
+Node Address: 0x4a51910
+Node Double: 12.000000
+Next node in list: 0x4a518c0
+
+Current head address of list: 0x4a51910
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x4a51910
+Node Double: 12.000000
+Next node in list: 0x4a518c0
+
+Position: 2
+Node Address: 0x4a518c0
+Node Double: 78.230000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 2
+What number would you like to be deleted: 78.,2  23
+Number was deleted successfully!
+
+Current head address of list: 0x4a51910
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x4a51910
+Node Double: 12.000000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 7
+List has been successfully deleted!
+
+Terminating Program... Have a lovely day <3
+==45525== 
+==45525== HEAP SUMMARY:
+==45525==     in use at exit: 0 bytes in 0 blocks
+==45525==   total heap usage: 4 allocs, 4 frees, 2,080 bytes allocated
+==45525== 
+==45525== All heap blocks were freed -- no leaks are possible
+==45525== 
+==45525== For lists of detected and suppressed errors, rerun with: -s
+==45525== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ valgrind --leak-check=yes ./lab8
+==45550== Memcheck, a memory error detector
+==45550== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==45550== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==45550== Command: ./lab8
+==45550== 
+---Welcome to Benjamin Wilson's Doubles List---
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 6 5
+
+===============================
+        Number of Nodes
+===============================
+
+Node/Item Count: 0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 1
+
+Please enter the number to be included in the list (negatives & decimals accepted): 3
+
+Node Address: 0x4a518c0
+Node Double: 3.000000
+NULL
+
+Current head address of list: 0x4a518c0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 1
+
+1) Enter item at head of list
+2) Enter item in middle of list
+3) Enter item at tail of list
+Please enter an option: 4 1
+
+Please enter the number to be included in the list (negatives & decimals accepted): 4
+
+Node Address: 0x4a51910
+Node Double: 4.000000
+Next node in list: 0x4a518c0
+
+Current head address of list: 0x4a51910
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Position: 1
+Node Address: 0x4a51910
+Node Double: 4.000000
+Next node in list: 0x4a518c0
+
+Position: 2
+Node Address: 0x4a518c0
+Node Double: 3.000000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 5
+
+===============================
+        Number of Nodes
+===============================
+
+Node/Item Count: 2
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 6
+What number would like to be found: 3
+The number was found!
+
+Node Address: 0x4a518c0
+Node Double: 3.000000
+NULL
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 7
+List has been successfully deleted!
+
+Terminating Program... Have a lovely day <3
+==45550== 
+==45550== HEAP SUMMARY:
+==45550==     in use at exit: 0 bytes in 0 blocks
+==45550==   total heap usage: 4 allocs, 4 frees, 2,080 bytes allocated
+==45550== 
+==45550== All heap blocks were freed -- no leaks are possible
+==45550== 
+==45550== For lists of detected and suppressed errors, rerun with: -s
+==45550== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ 1
+1: command not found
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ 1valgrind --leak-check=yes ./lab8
+==45586== Memcheck, a memory error detector
+==45586== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==45586== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==45586== Command: ./lab8
+==45586== 
+---Welcome to Benjamin Wilson's Doubles List---
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 3
+
+Deleting List...
+List has been successfully deleted!
+
+Current head address of list: (nil)
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 4
+
+===============================
+        The List So Far
+===============================
+
+Nothing in the list so far
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 5
+
+===============================
+        Number of Nodes
+===============================
+
+Node/Item Count: 0
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 6
+What number would like to be found: 43.89
+The list is currently empty, number not found!
+
+1) Enter a number
+2) Delete a number
+3) Delete entire list
+4) Print all numbers
+5) Print how many numbers are in the list
+6) Find a number in the list
+7) Quit
+
+Please enter an option (only integers): 7
+List has been successfully deleted!
+
+Terminating Program... Have a lovely day <3
+==45586== 
+==45586== HEAP SUMMARY:
+==45586==     in use at exit: 0 bytes in 0 blocks
+==45586==   total heap usage: 2 allocs, 2 frees, 2,048 bytes allocated
+==45586== 
+==45586== All heap blocks were freed -- no leaks are possible
+==45586== 
+==45586== For lists of detected and suppressed errors, rerun with: -s
+==45586== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]0;ben@Clover-VirtualBox: ~/cse113/lab8[01;32mben@Clover-VirtualBox[00m:[01;34m~/cse113/lab8[00m$ exit
+exit
+
+Script done on 2021-10-30 20:10:52-06:00 [COMMAND_EXIT_CODE="0"]
