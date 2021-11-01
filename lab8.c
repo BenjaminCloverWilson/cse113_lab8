@@ -3,9 +3,8 @@
  * @brief A linked list of user-inputted numbers
  * @author Benjamin Wilson
  * @date Fall 2021
- * @todo Write & implement functions
- * @bug DO NOT ENTER ANYTHING BUT AN INTEGER OR ELSE YOU GET AN INFINITE LOOP
- * for menu options. It's fine with normal insertions.
+ * @todo none
+ * @bug none
  */
 
 #include "lab8.h"
@@ -24,6 +23,7 @@ int main()
     int position = 0;
     int node_count;
     double number;
+    char in[LEN];
 
     /* Menu */
     printf("---Welcome to Benjamin Wilson's Doubles List---\n\n");
@@ -39,7 +39,8 @@ int main()
     printf("7) Quit\n\n");
     /* User-input */
     printf("Please enter an option (only integers): ");
-    scanf(" %d", &menu);
+    fgets(in, LEN, stdin);
+        menu = atoi(in);
 
     /* Main-Menu options */
     switch(menu)
@@ -54,17 +55,10 @@ int main()
         printf("2) Enter item in middle of list\n");
         printf("3) Enter item at tail of list\n");
         
-        /* User-input and error check */
-        while(menu == 0)
-        {
-            printf("Please enter an option: ");
-            scanf(" %d", &menu);
-            if(menu < 1 || menu > 3)
-            {
-                printf("Error: Please input a valid position number!\n\n");
-                menu = 0;   
-            }
-        }
+        /* User-input */
+        printf("Please enter an option: ");
+        fgets(in, LEN, stdin);
+            menu = atoi(in);
 
         /* Sub-menu options */
         switch(menu)
@@ -96,7 +90,9 @@ int main()
             while(position < 1)
             {
                 printf("Please enter position of the number into the current list: ");
-                scanf(" %d", &position);
+                fgets(in, LEN, stdin);
+                    position = atoi(in);
+                
                 if(position < 1)
                     printf("Error: Please input a valid position number!\n\n");
             }
@@ -126,6 +122,9 @@ int main()
             printf("Current head address of list: %p\n\n", head_check);
 
             break;
+        
+        default:
+            printf("Error: Please input a valid menu option!\n\n");
         }
 
         /* Resets menu options for recycling */
@@ -136,7 +135,8 @@ int main()
     case 2:
         /* User-input */
         printf("What number would you like to be deleted: ");
-        scanf(" %lf", &number);
+        fgets(in, LEN, stdin);
+            number = atof(in);
 
         /* Deletes node and prints current head address */
         head_check = delete_node(number, &head, &tail, &marker);
@@ -184,7 +184,8 @@ int main()
     /* Finds a node and returns it as marker */
     case 6:
         printf("What number would like to be found: ");
-        scanf(" %lf", &number);
+        fgets(in, LEN, stdin);
+            number = atof(in);
 
         marker = find_node(number, &head);
 
@@ -219,6 +220,8 @@ int main()
  */
 struct node *create_node()
 {
+    char in[LEN];
+
     double num;
 
     /* Allocates space for new node on heap */
@@ -235,7 +238,8 @@ struct node *create_node()
     /* printf() split for display purposes */
     printf("\nPlease enter the number to be included in the list ");
     printf("(negatives & decimals accepted): ");
-    scanf(" %lf", &num);
+    fgets(in, LEN, stdin);
+        num = atof(in);
 
     /* Assigns new node values */
     tmp->x = num;
@@ -379,14 +383,6 @@ struct node *insert_tail(struct node **tail, struct node **n, struct node **head
 
     } else
     {
-        /* Accesses list and finds tail */
-        struct node *index = *head;
-
-        while(index->next != NULL)
-            index = index->next;
-        
-        *tail = index;
-
         /* Inserts new node at tail */
         (*tail)->next = *n;
         *tail = *n;
